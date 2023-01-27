@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    background-color: #8DCBE6;
+    font-family: sans-serif;
+}
+.notes{
+    background-color: #fff;
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+}
+.notes .head-tools {
+    background-color: #03C988;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+}
+.notes .head-tools button {
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #fff;
+    margin-left: 0.5rem;
+}
