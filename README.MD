@@ -1,3 +1,3 @@
-# This is Notes taking App.. Help to contribute a help from my side.. 
+# This is Notes taking App.. A contribution from my side to help others.. 
 
 **`Under Development`**
