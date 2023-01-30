@@ -1,4 +1,5 @@
 import notesView from "./notesView.js"
+import notesAPI from "./notesAPI.js"
 
 const app = document.getElementById('app')
 const view = new notesView(app, {
@@ -10,3 +11,6 @@ const view = new notesView(app, {
         console.log(newBody)
     },
 })
+
+
+view.updateNoteList(notesAPI.getAllNotes())

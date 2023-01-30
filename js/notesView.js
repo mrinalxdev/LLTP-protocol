@@ -28,8 +28,6 @@ export default class notesView {
         btnAddNote.addEventListener('click', () => {
             this.onNoteAdd()
         })
-        console.log(inpTitle)
-        console.log(inpBody)
         
         let inputField
         [inpTitle, inpBody].forEach(inputField => {
@@ -40,8 +38,6 @@ export default class notesView {
                 this.onNoteEdit(updatedTitle, updatedBody)
             })
         })
-
-
 
 
     }
@@ -63,4 +59,21 @@ export default class notesView {
         </div>
         `
     }
+
+
+    updateNoteList(notes){
+        const notesListContainer = this.root.querySelector(".notes__list")
+
+        notesListContainer.inenrHTML = ""
+
+        for (const note of notes){
+            const html = this._createListItemHTML(note.id, note.title, note.body, new Date(note.updated))
+
+
+            notesListContainer.innertAdjacentHTML("beforeend", html)
+        }
+    }
+
+
+
 }
