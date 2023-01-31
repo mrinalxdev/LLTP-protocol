@@ -72,6 +72,24 @@ export default class notesView {
 
             notesListContainer.innertAdjacentHTML("beforeend", html)
         }
+
+        notesListContainer.querySelectorAll(".notes__list-item").forEach(noteListItem => {
+            noteListItem.addEventListener("click", () => {
+                this.onNoteSelect(notesListItem.dataset.noteId)
+            })
+
+
+            noteListItem.addEventListener("dbclick", () => {
+                const doDelete = confirm("Are you sure you want to delete this Note !!")
+
+                if (doDelete) {
+                    this.onNoteDelete(noteListItem.dataset.noteId)
+                }
+            })
+        })
+
+
+        
     }
 
 
