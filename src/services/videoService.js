@@ -1,5 +1,6 @@
 const ffmpeg = require("ffmpeg");
 const Video = require("../models/Video");
+const cv = require('opencv4nodejs')
 
 const transcodeVideo = async (inputFilePath, outputFilePath) => {
   try {
@@ -45,3 +46,29 @@ const processVideoMetadata = async (inputFilePath) => {
     throw err;
   }
 };
+
+const analyzeVideoContent = async(inputFilePath) => {
+  // Here I have used OpenCv for analysing of the video
+  try {
+    const cap = new cv.VideoCpature(inputFilePath)
+    const frameRate = cap.get(cv.CAP_PROPS_FPS)
+    const totalFrames = cap.get(cv.CAP_PROP_FRAME_COUNT)
+
+    const objectDetected = []
+    const scenesDetected = []
+
+    for (let frameIndex = 0; frameIndex < totalFrames; frameIndex += frameRate){
+      const frame = cap.read()
+      if (frame.empty){
+        break;
+      }
+    }
+
+    const classifier = new cv.CascadeClassifier(cv.HAAR_FRONTALFACE_ALT2);
+    const faces = classifier.detectMultiScale(frame);
+    
+    
+  }catch (err) {
+    console.error(err, 'Error While analyzing your video');
+  }
+}
